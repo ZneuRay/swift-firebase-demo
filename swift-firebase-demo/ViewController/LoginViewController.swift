@@ -1,8 +1,8 @@
 //
-//  SignUpViewController.swift
+//  LoginViewController.swift
 //  swift-firebase-demo
 //
-//  Created by Ray on 13/02/2017.
+//  Created by Ray on 14/02/2017.
 //  Copyright © 2017 Ray. All rights reserved.
 //
 
@@ -10,15 +10,16 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class SignUpViewController: UIViewController {
+class LoginViewController: UIViewController {
+
     @IBOutlet weak var accountTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBAction func signupButton(_ sender: UIButton) {
-        createAccount()
+    @IBAction func didTabLogin(_ sender: Any) {
+        login()
     }
     
-    func createAccount() {
+    func login() {
         if accountTextField.text == "" {
             let alertController = UIAlertController(title: "Error", message: "Please input account", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -31,22 +32,25 @@ class SignUpViewController: UIViewController {
             present(alertController, animated: true)
         } else {
             let email = accountTextField.text!
-            UserPreferences.setString(key: "email", value: email)
-            FIRAuth.auth()?.createUser(withEmail: email, password: passwordTextField.text!, completion: { (user, error) in
+            let password = passwordTextField.text!
+            let isSaved = UserPreferences.setString(key: "email", value: email)
+            FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
                 if error == nil {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                    self.present(vc!, animated: true, completion: nil)
+                    let alertController = UIAlertController(title: "Success", message: "Logged in", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
                     self.present(alertController, animated: true, completion: nil)
                 }
-            })
-            
+            }
         }
     }
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         let email = UserPreferences.getString(key: "email")
         accountTextField.text = email

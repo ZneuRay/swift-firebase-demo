@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7101E6221E5217B000D19212 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7101E6211E5217B000D19212 /* ResetPasswordViewController.swift */; };
+		7101E6241E5217EF00D19212 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7101E6231E5217EF00D19212 /* SignUpViewController.swift */; };
+		719DCEB41E521D2E00FEB34F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719DCEB31E521D2E00FEB34F /* LoginViewController.swift */; };
 		71B51C9C1E4FA6CF0086D618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B51C9B1E4FA6CF0086D618 /* AppDelegate.swift */; };
 		71B51C9E1E4FA6CF0086D618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B51C9D1E4FA6CF0086D618 /* ViewController.swift */; };
 		71B51CA11E4FA6CF0086D618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71B51C9F1E4FA6CF0086D618 /* Main.storyboard */; };
 		71B51CA41E4FA6CF0086D618 /* swift_firebase_demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71B51CA21E4FA6CF0086D618 /* swift_firebase_demo.xcdatamodeld */; };
 		71B51CA61E4FA6CF0086D618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B51CA51E4FA6CF0086D618 /* Assets.xcassets */; };
 		71B51CA91E4FA6CF0086D618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71B51CA71E4FA6CF0086D618 /* LaunchScreen.storyboard */; };
-		71BF95E51E50DE600044C3BA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BF95E41E50DE600044C3BA /* SignUpViewController.swift */; };
 		71BF95EC1E51B7FA0044C3BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71BF95EA1E51B6DC0044C3BA /* GoogleService-Info.plist */; };
 		71BF95EF1E51FE460044C3BA /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BF95EE1E51FE460044C3BA /* UserPreferences.swift */; };
 		FC824B16632AC637F38ABBCB /* Pods_swift_firebase_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E322C694C2948A782323F1 /* Pods_swift_firebase_demo.framework */; };
@@ -21,6 +23,9 @@
 
 /* Begin PBXFileReference section */
 		4CE2C50DFB2C3A2ECC3E3F95 /* Pods-swift-firebase-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-firebase-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-firebase-demo/Pods-swift-firebase-demo.release.xcconfig"; sourceTree = "<group>"; };
+		7101E6211E5217B000D19212 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = ViewController/ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		7101E6231E5217EF00D19212 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ViewController/SignUpViewController.swift; sourceTree = "<group>"; };
+		719DCEB31E521D2E00FEB34F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewController/LoginViewController.swift; sourceTree = "<group>"; };
 		71B51C981E4FA6CF0086D618 /* swift-firebase-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-firebase-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B51C9B1E4FA6CF0086D618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71B51C9D1E4FA6CF0086D618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,7 +34,6 @@
 		71B51CA51E4FA6CF0086D618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71B51CA81E4FA6CF0086D618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71B51CAA1E4FA6CF0086D618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71BF95E41E50DE600044C3BA /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		71BF95EA1E51B6DC0044C3BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71BF95EE1E51FE460044C3BA /* UserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPreferences.swift; path = lib/UserPreferences.swift; sourceTree = "<group>"; };
 		BFAC776F1557D39147E7F858 /* Pods-swift-firebase-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-firebase-demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-firebase-demo/Pods-swift-firebase-demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -48,6 +52,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7101E6201E52177100D19212 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				719DCEB31E521D2E00FEB34F /* LoginViewController.swift */,
+				7101E6231E5217EF00D19212 /* SignUpViewController.swift */,
+				7101E6211E5217B000D19212 /* ResetPasswordViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		71B51C8F1E4FA6CF0086D618 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +83,7 @@
 		71B51C9A1E4FA6CF0086D618 /* swift-firebase-demo */ = {
 			isa = PBXGroup;
 			children = (
+				7101E6201E52177100D19212 /* ViewController */,
 				71BF95ED1E51FE020044C3BA /* lib */,
 				71B51C9B1E4FA6CF0086D618 /* AppDelegate.swift */,
 				71B51C9D1E4FA6CF0086D618 /* ViewController.swift */,
@@ -78,7 +93,6 @@
 				71B51CA71E4FA6CF0086D618 /* LaunchScreen.storyboard */,
 				71B51CAA1E4FA6CF0086D618 /* Info.plist */,
 				71B51CA21E4FA6CF0086D618 /* swift_firebase_demo.xcdatamodeld */,
-				71BF95E41E50DE600044C3BA /* SignUpViewController.swift */,
 			);
 			path = "swift-firebase-demo";
 			sourceTree = "<group>";
@@ -233,11 +247,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				719DCEB41E521D2E00FEB34F /* LoginViewController.swift in Sources */,
+				7101E6241E5217EF00D19212 /* SignUpViewController.swift in Sources */,
 				71BF95EF1E51FE460044C3BA /* UserPreferences.swift in Sources */,
 				71B51C9E1E4FA6CF0086D618 /* ViewController.swift in Sources */,
 				71B51CA41E4FA6CF0086D618 /* swift_firebase_demo.xcdatamodeld in Sources */,
-				71BF95E51E50DE600044C3BA /* SignUpViewController.swift in Sources */,
 				71B51C9C1E4FA6CF0086D618 /* AppDelegate.swift in Sources */,
+				7101E6221E5217B000D19212 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

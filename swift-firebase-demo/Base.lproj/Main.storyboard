@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="swift_firebase_demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="swift_firebase_demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -50,7 +50,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="登入"/>
                                 <connections>
-                                    <action selector="loginBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VbY-0h-cic"/>
+                                    <action selector="didTabLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N6G-F2-drL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY6-ov-GZS">
@@ -86,15 +86,19 @@
                             <constraint firstItem="NZ0-yR-7CZ" firstAttribute="top" secondItem="GgA-WV-eu8" secondAttribute="bottom" constant="30" id="qqS-M3-zyf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="accountTextField" destination="KGC-WA-OBJ" id="MZo-3N-wHz"/>
+                        <outlet property="passwordTextField" destination="GgA-WV-eu8" id="43z-yx-r39"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--Reset Password View Controller-->
         <scene sceneID="xCO-8h-bP2">
             <objects>
-                <viewController id="N6m-lZ-h0G" sceneMemberID="viewController">
+                <viewController id="N6m-lZ-h0G" customClass="ResetPasswordViewController" customModule="swift_firebase_demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TIb-xj-T36"/>
                         <viewControllerLayoutGuide type="bottom" id="2gd-7h-zEe"/>
@@ -184,6 +188,7 @@
                                     <constraint firstAttribute="width" constant="200" id="8jf-e0-pnl"/>
                                 </constraints>
                                 <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKg-Ee-Ih4">
