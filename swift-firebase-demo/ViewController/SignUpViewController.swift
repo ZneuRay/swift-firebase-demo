@@ -19,32 +19,24 @@ class SignUpViewController: UIViewController {
     }
     
     func createAccount() {
-        if accountTextField.text == "" {
-            let alertController = UIAlertController(title: "Error", message: "Please input account", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            present(alertController, animated: true)
-        } else if passwordTextField.text == "" {
-            let alertController = UIAlertController(title: "error", message: "Please input password", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            present(alertController, animated: true)
-        } else {
-            let email = accountTextField.text!
-            UserPreferences.setString(key: "email", value: email)
-            FIRAuth.auth()?.createUser(withEmail: email, password: passwordTextField.text!, completion: { (user, error) in
-                if error == nil {
-//                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-//                    self.present(vc!, animated: true, completion: nil)
-                } else {
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    self.present(alertController, animated: true, completion: nil)
-                }
-            })
-            
+        
+        guard let email = accountTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            self.showErrorMessagePrompt(message: "Email or password is empty")
+            return
         }
+        UserPreferences.setString(key: "email", value: email)
+        self.startLoading(message: "Please wait")
+        FIRAuth.auth()?.createUser(withEmail: email, password: passwordTextField.text!, completion: {
+            (user, error) in
+            self.stopLoading()
+            if let error = error {
+                self.showErrorMessagePrompt(message: error.localizedDescription)
+            } else {
+                self.showSuccessMessagePrompt(message: "Account have been created")
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+                self.present(vc!, animated: true, completion: nil)
+            }
+        })
     }
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -20,32 +20,22 @@ class LoginViewController: UIViewController {
     }
     
     func login() {
-        if accountTextField.text == "" {
-            let alertController = UIAlertController(title: "Error", message: "Please input account", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            present(alertController, animated: true)
-        } else if passwordTextField.text == "" {
-            let alertController = UIAlertController(title: "error", message: "Please input password", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            present(alertController, animated: true)
-        } else {
-            let email = accountTextField.text!
-            let password = passwordTextField.text!
-            let isSaved = UserPreferences.setString(key: "email", value: email)
-            FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
-                if error == nil {
-                    let alertController = UIAlertController(title: "Success", message: "Logged in", preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alertController.addAction(defaultAction)
-                    self.present(alertController, animated: true, completion: nil)
-                } else {
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    self.present(alertController, animated: true, completion: nil)
-                }
+        guard let email = self.accountTextField.text, !email.isEmpty, let password = self.passwordTextField.text, !password.isEmpty else {
+            self.showErrorMessagePrompt(message: "Email or password can't be empty.")
+            return
+        }
+        
+        UserPreferences.setString(key: "email", value: email)
+        
+        
+        self.startLoading(message: "登入中，請稍後")
+        FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+            self.stopLoading()
+            if let error = error {
+                self.showErrorMessagePrompt(message: error.localizedDescription)
+            } else {
+                self.showSuccessMessagePrompt(message: "Logged in")
+                
             }
         }
     }
@@ -61,6 +51,8 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*

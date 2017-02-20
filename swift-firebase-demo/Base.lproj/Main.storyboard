@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="swift_firebase_demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="swift_firebase_demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -34,7 +34,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GgA-WV-eu8">
                                 <rect key="frame" x="60" y="273" width="200" height="30"/>
@@ -120,13 +120,14 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFU-6f-lgE">
                                 <rect key="frame" x="111" y="277.5" width="98" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="重設密碼"/>
                                 <connections>
+                                    <action selector="didTabReset:" destination="N6m-lZ-h0G" eventType="touchUpInside" id="wmo-ff-biB"/>
                                     <action selector="loginBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MDy-vU-hV6"/>
                                 </connections>
                             </button>
@@ -156,6 +157,9 @@
                             <constraint firstItem="Mxv-en-S2Z" firstAttribute="centerX" secondItem="aqY-0m-e1F" secondAttribute="centerX" id="zRx-xm-KBc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="accountTextField" destination="0Kd-Bg-mqg" id="b5s-kc-hnU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7x-Zc-ZUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,7 +184,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LVH-nq-HLG">
                                 <rect key="frame" x="60" y="265" width="200" height="30"/>
@@ -246,6 +250,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Dp2-J9-F16"/>
+        <segue reference="5dr-ea-19d"/>
     </inferredMetricsTieBreakers>
 </document>
