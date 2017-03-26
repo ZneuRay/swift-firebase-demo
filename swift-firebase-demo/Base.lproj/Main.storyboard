@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,104 +15,107 @@
             <objects>
                 <viewController storyboardIdentifier="Login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="swift_firebase_demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="wkf-od-023"/>
+                        <viewControllerLayoutGuide type="bottom" id="ToR-nn-waN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="F18-Ab-n4E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXS-kc-I9n">
-                                <rect key="frame" x="97" y="40" width="126" height="63"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGC-WA-OBJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="own-vZ-Q0e">
+                                <rect key="frame" x="174" y="423" width="49" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="註冊"/>
+                                <connections>
+                                    <segue destination="9t0-Bg-RcB" kind="show" id="NHc-IX-Ss5"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s5g-Tu-5yh">
                                 <rect key="frame" x="60" y="323" width="200" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="G3J-Qr-9rH"/>
+                                    <constraint firstAttribute="width" constant="200" id="85P-Mp-2Nf"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GgA-WV-eu8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DtZ-cw-h53">
+                                <rect key="frame" x="97" y="423" width="49" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="登入"/>
+                                <connections>
+                                    <action selector="didTabLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2gl-yo-MHu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgc-0k-nmO">
+                                <rect key="frame" x="97" y="40" width="126" height="63"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebase" translatesAutoresizingMaskIntoConstraints="NO" id="RTi-KN-v9t">
+                                <rect key="frame" x="70" y="123" width="180" height="180"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="rgh-yU-dcu"/>
+                                    <constraint firstAttribute="height" constant="180" id="rrM-da-UPX"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tcx-dL-ZRS" appends="YES" id="Hct-Ve-QdB"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TeA-TI-zec">
                                 <rect key="frame" x="60" y="373" width="200" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Uzx-YJ-yoI"/>
+                                    <constraint firstAttribute="width" constant="200" id="RBA-uV-BEs"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
-                                    <action selector="didPasswordFieldDone:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="mwg-E3-Gvg"/>
+                                    <action selector="didPasswordFieldDone:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="917-lY-zTj"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZ0-yR-7CZ">
-                                <rect key="frame" x="97" y="423" width="49" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="登入"/>
-                                <connections>
-                                    <action selector="didTabLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N6G-F2-drL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdg-TS-oX2">
-                                <rect key="frame" x="105" y="497" width="110" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrM-rC-WBY">
+                                <rect key="frame" x="105" y="507" width="110" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="忘記密碼?"/>
                                 <connections>
-                                    <segue destination="N6m-lZ-h0G" kind="show" id="kNh-TY-Avk"/>
-                                </connections>
-                            </button>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebase" translatesAutoresizingMaskIntoConstraints="NO" id="46V-G8-3sR">
-                                <rect key="frame" x="70" y="123" width="180" height="180"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="BrG-sM-HIV"/>
-                                    <constraint firstAttribute="height" constant="180" id="EHW-N7-eGk"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="tcx-dL-ZRS" appends="YES" id="TbX-9b-UB0"/>
-                                </connections>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY6-ov-GZS">
-                                <rect key="frame" x="174" y="423" width="49" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="註冊"/>
-                                <connections>
-                                    <segue destination="9t0-Bg-RcB" kind="show" id="T0H-5p-vnp"/>
+                                    <segue destination="N6m-lZ-h0G" kind="show" id="o59-8s-3Qe"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GgA-WV-eu8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B0u-Dc-8rM"/>
-                            <constraint firstItem="46V-G8-3sR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GIe-fu-AvD"/>
-                            <constraint firstItem="jXS-kc-I9n" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="HJd-Fg-HHU"/>
-                            <constraint firstItem="KGC-WA-OBJ" firstAttribute="top" secondItem="46V-G8-3sR" secondAttribute="bottom" constant="20" id="MdE-GD-R4O"/>
-                            <constraint firstItem="bY6-ov-GZS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="38.5" id="XEk-u8-foI"/>
-                            <constraint firstItem="NZ0-yR-7CZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-38.5" id="YG2-Fz-0RU"/>
-                            <constraint firstItem="GgA-WV-eu8" firstAttribute="top" secondItem="KGC-WA-OBJ" secondAttribute="bottom" constant="20" id="Ye2-k3-vio"/>
-                            <constraint firstItem="jXS-kc-I9n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZcU-mM-Fye"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fdg-TS-oX2" secondAttribute="bottom" constant="30" id="nsW-yd-Gds"/>
-                            <constraint firstItem="46V-G8-3sR" firstAttribute="top" secondItem="jXS-kc-I9n" secondAttribute="bottom" constant="20" id="o5L-gJ-Jvf"/>
-                            <constraint firstItem="fdg-TS-oX2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pBd-nR-5qW"/>
-                            <constraint firstItem="KGC-WA-OBJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qZm-ya-mlN"/>
-                            <constraint firstItem="NZ0-yR-7CZ" firstAttribute="top" secondItem="GgA-WV-eu8" secondAttribute="bottom" constant="20" id="qqS-M3-zyf"/>
-                            <constraint firstItem="bY6-ov-GZS" firstAttribute="top" secondItem="GgA-WV-eu8" secondAttribute="bottom" constant="20" id="sxE-aS-qHL"/>
+                            <constraint firstItem="IrM-rC-WBY" firstAttribute="centerX" secondItem="TeA-TI-zec" secondAttribute="centerX" id="49f-0y-aPS"/>
+                            <constraint firstItem="RTi-KN-v9t" firstAttribute="top" secondItem="Sgc-0k-nmO" secondAttribute="bottom" constant="20" id="7Dn-uE-M3p"/>
+                            <constraint firstItem="IrM-rC-WBY" firstAttribute="top" secondItem="DtZ-cw-h53" secondAttribute="bottom" constant="43" id="BKc-Ac-z90"/>
+                            <constraint firstItem="Sgc-0k-nmO" firstAttribute="centerX" secondItem="F18-Ab-n4E" secondAttribute="centerX" id="JhW-2b-u0Z"/>
+                            <constraint firstItem="s5g-Tu-5yh" firstAttribute="top" secondItem="RTi-KN-v9t" secondAttribute="bottom" constant="20" id="PPr-nO-BC2"/>
+                            <constraint firstItem="own-vZ-Q0e" firstAttribute="top" secondItem="TeA-TI-zec" secondAttribute="bottom" constant="20" id="QXB-jW-ErU"/>
+                            <constraint firstItem="s5g-Tu-5yh" firstAttribute="centerX" secondItem="F18-Ab-n4E" secondAttribute="centerX" id="Umt-YW-xfM"/>
+                            <constraint firstItem="DtZ-cw-h53" firstAttribute="top" secondItem="TeA-TI-zec" secondAttribute="bottom" constant="20" id="VVI-QQ-qPN"/>
+                            <constraint firstItem="TeA-TI-zec" firstAttribute="top" secondItem="s5g-Tu-5yh" secondAttribute="bottom" constant="20" id="Vt2-n5-9Hs"/>
+                            <constraint firstItem="Sgc-0k-nmO" firstAttribute="top" secondItem="wkf-od-023" secondAttribute="bottom" constant="20" id="YCq-ZT-4t0"/>
+                            <constraint firstItem="own-vZ-Q0e" firstAttribute="centerX" secondItem="F18-Ab-n4E" secondAttribute="centerX" constant="38.5" id="ZLT-iV-hx7"/>
+                            <constraint firstItem="DtZ-cw-h53" firstAttribute="centerX" secondItem="F18-Ab-n4E" secondAttribute="centerX" constant="-38.5" id="aU5-IF-7bE"/>
+                            <constraint firstItem="RTi-KN-v9t" firstAttribute="centerX" secondItem="F18-Ab-n4E" secondAttribute="centerX" id="bQY-5q-tgS"/>
+                            <constraint firstAttribute="bottom" secondItem="IrM-rC-WBY" secondAttribute="bottom" constant="20" symbolic="YES" id="ok5-d0-dyh"/>
+                            <constraint firstItem="TeA-TI-zec" firstAttribute="centerX" secondItem="F18-Ab-n4E" secondAttribute="centerX" id="qDY-gp-m5A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IrM-rC-WBY" secondAttribute="trailing" constant="89" id="raL-le-s7L"/>
                         </constraints>
-                    </view>
+                    </scrollView>
                     <connections>
-                        <outlet property="accountTextField" destination="KGC-WA-OBJ" id="MZo-3N-wHz"/>
-                        <outlet property="logoImage" destination="46V-G8-3sR" id="SUQ-tX-Nty"/>
-                        <outlet property="passwordTextField" destination="GgA-WV-eu8" id="43z-yx-r39"/>
+                        <outlet property="accountTextField" destination="s5g-Tu-5yh" id="EI4-ej-Rlm"/>
+                        <outlet property="logoImage" destination="RTi-KN-v9t" id="vhW-1Z-q0p"/>
+                        <outlet property="passwordTextField" destination="TeA-TI-zec" id="ha9-0H-pSR"/>
+                        <outlet property="scrollView" destination="F18-Ab-n4E" id="lvU-Fe-X6z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="tcx-dL-ZRS">
                     <connections>
-                        <action selector="selectLogoFromPhotoLibrary:" destination="BYZ-38-t0r" id="T6e-jp-dfy"/>
+                        <action selector="selectLogoFromPhotoLibrary:" destination="BYZ-38-t0r" id="mK5-eT-ECX"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -130,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxv-en-S2Z">
-                                <rect key="frame" x="17.5" y="112" width="286.5" height="46"/>
+                                <rect key="frame" x="16.5" y="112" width="287" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -159,7 +163,7 @@
                                     <navigationItem title="Reset" id="8qR-5a-hk7">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="veP-75-hyc">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="5dr-ea-19d"/>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="2F9-7P-nRb"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -232,14 +236,14 @@
                                     <navigationItem title="Sign up" id="M5x-E3-pkt">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Psc-ig-nrC">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="Dp2-J9-F16"/>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="Cue-xD-3dP"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCy-ml-TNa">
-                                <rect key="frame" x="74" y="92" width="173" height="63"/>
+                                <rect key="frame" x="73.5" y="92" width="173" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="52"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -275,6 +279,6 @@
         <image name="firebase" width="90" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dp2-J9-F16"/>
+        <segue reference="2F9-7P-nRb"/>
     </inferredMetricsTieBreakers>
 </document>

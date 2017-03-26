@@ -10,11 +10,14 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var accountTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet var scrollView: UIScrollView!
+    
+    var activeTextField: UITextField?
     
     @IBAction func didTabLogin(_ sender: Any) {
         login()
@@ -39,8 +42,9 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
             if let error = error {
                 self.showErrorMessagePrompt(message: error.localizedDescription)
             } else {
-                self.showSuccessMessagePrompt(message: "Logged in")
-                
+                let dashboardController = ViewController(nibName: "DashboardViewController", bundle: nil)
+                self.present(dashboardController, animated: true, completion: nil)
+//                self.showSuccessMessagePrompt(message: "Logged in")
             }
         }
     }
@@ -50,6 +54,12 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let email = UserPreferences.getString(key: "email")
         accountTextField.text = email
         // Do any additional setup after loading the view.
+        
+        registerForKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        deregisterFromKeyboardNotifications()
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,6 +102,52 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
         logoImage.image = selectedLogo
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func deregisterFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWasShown(notification: Notification) {
+        self.scrollView.isScrollEnabled = true
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0, 0, keyboardSize!.height, 0)
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        
+        var aRect: CGRect = self.view.frame
+        aRect.size.height -= keyboardSize!.height
+        if let activeField = activeTextField {
+            if (!aRect.contains(activeField.frame.origin)) {
+                self.scrollView.scrollRectToVisible(aRect, animated: true)
+            }
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: Notification) {
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0, 0, -keyboardSize!.height, 0)
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        self.view.endEditing(true)
+        self.scrollView.isScrollEnabled = false
+        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeTextField = nil
     }
 
 
