@@ -22,13 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXS-kc-I9n">
-                                <rect key="frame" x="97" y="60" width="126" height="63"/>
+                                <rect key="frame" x="97" y="40" width="126" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="52"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGC-WA-OBJ">
-                                <rect key="frame" x="60" y="223" width="200" height="30"/>
+                                <rect key="frame" x="60" y="323" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="G3J-Qr-9rH"/>
                                 </constraints>
@@ -37,28 +37,23 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GgA-WV-eu8">
-                                <rect key="frame" x="60" y="273" width="200" height="30"/>
+                                <rect key="frame" x="60" y="373" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Uzx-YJ-yoI"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="didPasswordFieldDone:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="mwg-E3-Gvg"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZ0-yR-7CZ">
-                                <rect key="frame" x="135.5" y="333" width="49" height="41"/>
+                                <rect key="frame" x="97" y="423" width="49" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="登入"/>
                                 <connections>
                                     <action selector="didTabLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N6G-F2-drL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY6-ov-GZS">
-                                <rect key="frame" x="135.5" y="446" width="49" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="註冊"/>
-                                <connections>
-                                    <segue destination="9t0-Bg-RcB" kind="show" id="T0H-5p-vnp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdg-TS-oX2">
@@ -69,29 +64,56 @@
                                     <segue destination="N6m-lZ-h0G" kind="show" id="kNh-TY-Avk"/>
                                 </connections>
                             </button>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebase" translatesAutoresizingMaskIntoConstraints="NO" id="46V-G8-3sR">
+                                <rect key="frame" x="70" y="123" width="180" height="180"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="BrG-sM-HIV"/>
+                                    <constraint firstAttribute="height" constant="180" id="EHW-N7-eGk"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tcx-dL-ZRS" appends="YES" id="TbX-9b-UB0"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY6-ov-GZS">
+                                <rect key="frame" x="174" y="423" width="49" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="註冊"/>
+                                <connections>
+                                    <segue destination="9t0-Bg-RcB" kind="show" id="T0H-5p-vnp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GgA-WV-eu8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B0u-Dc-8rM"/>
-                            <constraint firstItem="jXS-kc-I9n" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="HJd-Fg-HHU"/>
-                            <constraint firstItem="fdg-TS-oX2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vyq-PL-ImY"/>
-                            <constraint firstItem="bY6-ov-GZS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XEk-u8-foI"/>
-                            <constraint firstItem="NZ0-yR-7CZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YG2-Fz-0RU"/>
+                            <constraint firstItem="46V-G8-3sR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GIe-fu-AvD"/>
+                            <constraint firstItem="jXS-kc-I9n" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="HJd-Fg-HHU"/>
+                            <constraint firstItem="KGC-WA-OBJ" firstAttribute="top" secondItem="46V-G8-3sR" secondAttribute="bottom" constant="20" id="MdE-GD-R4O"/>
+                            <constraint firstItem="bY6-ov-GZS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="38.5" id="XEk-u8-foI"/>
+                            <constraint firstItem="NZ0-yR-7CZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-38.5" id="YG2-Fz-0RU"/>
                             <constraint firstItem="GgA-WV-eu8" firstAttribute="top" secondItem="KGC-WA-OBJ" secondAttribute="bottom" constant="20" id="Ye2-k3-vio"/>
                             <constraint firstItem="jXS-kc-I9n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZcU-mM-Fye"/>
-                            <constraint firstItem="KGC-WA-OBJ" firstAttribute="top" secondItem="jXS-kc-I9n" secondAttribute="bottom" constant="100" id="iW9-fj-sbb"/>
-                            <constraint firstItem="fdg-TS-oX2" firstAttribute="top" secondItem="bY6-ov-GZS" secondAttribute="bottom" constant="10" id="jqH-lQ-CIP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fdg-TS-oX2" secondAttribute="bottom" constant="30" id="nsW-yd-Gds"/>
+                            <constraint firstItem="46V-G8-3sR" firstAttribute="top" secondItem="jXS-kc-I9n" secondAttribute="bottom" constant="20" id="o5L-gJ-Jvf"/>
+                            <constraint firstItem="fdg-TS-oX2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pBd-nR-5qW"/>
                             <constraint firstItem="KGC-WA-OBJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qZm-ya-mlN"/>
-                            <constraint firstItem="NZ0-yR-7CZ" firstAttribute="top" secondItem="GgA-WV-eu8" secondAttribute="bottom" constant="30" id="qqS-M3-zyf"/>
+                            <constraint firstItem="NZ0-yR-7CZ" firstAttribute="top" secondItem="GgA-WV-eu8" secondAttribute="bottom" constant="20" id="qqS-M3-zyf"/>
+                            <constraint firstItem="bY6-ov-GZS" firstAttribute="top" secondItem="GgA-WV-eu8" secondAttribute="bottom" constant="20" id="sxE-aS-qHL"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="accountTextField" destination="KGC-WA-OBJ" id="MZo-3N-wHz"/>
+                        <outlet property="logoImage" destination="46V-G8-3sR" id="SUQ-tX-Nty"/>
                         <outlet property="passwordTextField" destination="GgA-WV-eu8" id="43z-yx-r39"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tcx-dL-ZRS">
+                    <connections>
+                        <action selector="selectLogoFromPhotoLibrary:" destination="BYZ-38-t0r" id="T6e-jp-dfy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="140" y="138.98050974512745"/>
         </scene>
@@ -249,7 +271,10 @@
             <point key="canvasLocation" x="1017" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="firebase" width="90" height="90"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5dr-ea-19d"/>
+        <segue reference="Dp2-J9-F16"/>
     </inferredMetricsTieBreakers>
 </document>
